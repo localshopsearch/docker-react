@@ -1,0 +1,10 @@
+sudo: required
+
+services:
+  - docker
+
+before_install:
+  - docker build -t localshopsearch/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run localshopsearch/docker-react npm run test -- --coverage
